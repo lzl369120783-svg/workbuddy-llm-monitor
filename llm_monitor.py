@@ -42,12 +42,12 @@ MODELS_JSON = Path.home() / ".workbuddy" / "models.json"
 # 模型定价表 (USD per 1M tokens)
 # 格式: model_name -> { input, output, cache_read }
 MODEL_PRICING = {
-    # Claude 系列
-    "auto-pro":       {"input": 15.0,  "output": 75.0,  "cache_read": 1.5},
-    "auto":           {"input": 3.0,   "output": 15.0,  "cache_read": 0.3},
-    "claude-4-opus":  {"input": 15.0,  "output": 75.0,  "cache_read": 1.5},
+    # Claude 系列 (2026年4月价格)
+    "auto-pro":       {"input": 0.0,   "output": 0.0,   "cache_read": 0.0},   # 实际=腾讯Hy3 Preview免费
+    "auto":           {"input": 0.0,   "output": 0.0,   "cache_read": 0.0},   # 实际=腾讯Hy3 Preview免费
+    "claude-4-opus":  {"input": 5.0,   "output": 25.0,  "cache_read": 0.5},
     "claude-4-sonnet":{"input": 3.0,   "output": 15.0,  "cache_read": 0.3},
-    "claude-4-haiku": {"input": 0.25,  "output": 1.25,  "cache_read": 0.025},
+    "claude-4-haiku": {"input": 1.0,   "output": 5.0,   "cache_read": 0.1},   # Claude Haiku 4.5
     # DeepSeek
     "deepseek-ai/deepseek-v3.2":  {"input": 0.27,  "output": 1.10, "cache_read": 0.07},
     "deepseek-ai/deepseek-v4-flash": {"input": 0.14, "output": 0.28, "cache_read": 0.014},
@@ -72,8 +72,10 @@ MODEL_PRICING = {
     "kimi-k2.6":      {"input": 0.27,  "output": 1.10,  "cache_read": 0.07},
     # Google Gemma (本地)
     "gemma4:e2b":     {"input": 0.0,   "output": 0.0,   "cache_read": 0.0},
-    # Tencent
-    "tencent/hy3-preview-20260421:free": {"input": 0.0, "output": 0.0, "cache_read": 0.0},
+    # Tencent Hy3 preview
+    "hy3-preview-agent": {"input": 0.17, "output": 0.56, "cache_read": 0.06},  # 腾讯云 ¥1.2/¥4 per Mtok ≈ $0.17/$0.56
+    "tencent/hy3-preview-20260421:free": {"input": 0.0, "output": 0.0, "cache_read": 0.0},  # OpenRouter免费版(5月8日下线)
+    "tencent/hy3-preview": {"input": 0.17, "output": 0.56, "cache_read": 0.06},
     # 未知模型默认
     "_default":       {"input": 3.0,   "output": 15.0,  "cache_read": 0.3},
 }
